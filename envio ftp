@@ -1,0 +1,19 @@
+::off comments ::
+@echo off 
+::input information to make the conection::
+set/p ip= "input the IP addresses of the server: "
+set/p user= "input the name of the server user: "
+set/p pass= "input the password server: "
+    echo user %user%> ftpcmd.dat  
+    echo %pass%>> ftpcmd.dat
+    echo %file%
+      pause
+
+::up information to the server::
+    echo put a.txt informacion/a.txt >> ftpcmd.dat 
+::a txt is the file to up:: 
+    pause
+    echo bye >> ftpcmd.dat
+   ftp -n -s:ftpcmd.dat %ip%
+   pause
+  del ftpcmd.dat
